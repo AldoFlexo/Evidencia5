@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo.css" type="text/css">
+
+</head>
+
+<body>
+
+    <div >
+        <h1 style="text-align: center;">EVIDENCIA #5</h1>
+        <label class="id" for="trp">ID:</label>
+        <input type="number" name="trp" id="trp">
+        <button class="rkt" id="rkt">BUSCAR</button>
+        <button class="bt" id="bt">LIMPIAR</button>
+        <hr>
+    </div>
+    
+    <div>
+        <label class="bbp" for="bbp">Titulo</label>
+        <input type="text" name="bbp" id="bbp">
+        <label class="hhp" for="hhp">Completado</label>
+        <input type="text" name="hhp" id="hhp">
+        <hr>
+    </div>
+
+    <div>
+        <table border class="tabla">
+            <thead>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONO</th>
+                    <th>WEBSITE</th>
+                </tr>
+            </thead>
+            <tbody id="chill">
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+
+        document.getElementById("rkt").addEventListener("click", async () => {
+            if (document.getElementById('trp').value <= 0 || document.getElementById('trp').value >= 201) {
+                console.log("Numero Invalido");
+                window.alert("Numero no valida, intentelo de nuevo");
+            }
+            else {
+                if (await X() == true) {
+                    document.getElementById("rkt").style.display = "none";
+                    document.getElementById("bt").style.display = "inline-block";
+                    console.log("Terminó con éxito.");
+                }
+            }
+
+        });
+
+        document.getElementById("bt").addEventListener("click", () => {
+            document.getElementById("rkt").style.display = "inline-block";
+            document.getElementById("bt").style.display = "none";
+            document.getElementById("bbp").value = "";
+            document.getElementById("hhp").value = "";
+            document.getElementById("lf").remove();
+
+        });
+
+        const dt = (datos) => {
+            let spr = document.getElementById("trp").value;
+            for (const gk of datos) {
+                if (spr == gk.id) {
+                    document.getElementById('bbp').value = gk.title;
+                    document.getElementById('hhp').value = gk.completed;
+                }
+            }
+        }
+
+        const amt = (datos) => {
+            let sat = document.getElementById("trp").value;
+            let sad = document.getElementById("chill")
+            for (const dnc of datos) {
+                if (sat == dnc.id) {
+                    let row = `<tr id="lf">
+                                    <td>${dnc.name}</td>
+                                    <td>${dnc.email}</td>
+                                    <td>${dnc.phone}</td>
+                                    <td>${dnc.website}</td>
+                                </tr>`
+                    sad.innerHTML += row;
+                }
+            }
+        }
+
+        const X = async () => {
+
+            try {
+                const krln = "https://jsonplaceholder.typicode.com/todos";
+
+                const res = await fetch(krln)
+                    .then(res => res.json())
+                    .then(datos => dt(datos))
+                    .catch(error => {
+                        console.log("Hubo un error: " + error.message);
+                    })
+            }
+            catch (error) {
+                console.log("error");
+                return false;
+            }
+
+            try {
+                const vgt = "https://jsonplaceholder.typicode.com/users";
+
+                const res = await fetch(vgt)
+                    .then(res => res.json())
+                    .then(datos => amt(datos))
+                    .catch(error => {
+                        console.log("Hubo un error: " + error.message);
+                    })
+            }
+            catch (error) {
+                console.log("Hubo un error: " + error.message);
+                return false;
+            }
+            return true;
+
+        }
+    </script>
+
+
+</body>
+
+</html>

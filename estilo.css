@@ -1,0 +1,86 @@
+h1{
+    margin: 10px;
+    border: 50px;
+    padding: 25px;
+    background-color: rgb(70, 75, 75);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 3px 3px 1px black;
+    color: white;
+}
+
+hr{
+    border: 0; height: 2px; 
+    text-align: center; 
+    background-color:black;
+}
+
+body{
+    background-color: lightslategray;
+}
+
+.tabla{
+    padding: 5px;
+    border: 10px;
+    background-color: rgb(255, 255, 255);
+    font-family: initial;
+}
+
+th{
+    background-color: rgb(0, 255, 255);
+    width: 30%;
+    text-align: left;
+    vertical-align: top;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=text]:focus {
+    background-color: lightblue;
+  }
+
+  .bbp{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .hhp{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .id{
+      font-style: oblique;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .rkt{
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  .bt{
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+
+  
+
